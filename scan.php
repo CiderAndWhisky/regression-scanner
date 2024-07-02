@@ -124,7 +124,7 @@ EOT;
         $version = $this->getSshVersion($ip, $port);
         if ($version) {
             $message = "OpenSSH version $version $ip:$port";
-            list($is_vulnerable, $cve_number) = $this->isVulnerable("OpenSSH_$version");
+            list($is_vulnerable, $cve_number) = $this->isVulnerable("$version");
             if ($is_vulnerable) {
                 $vulnerability_message = "$cve_number OpenSSH version $version $ip:$port";
                 $this->printMessage('vulnerable', $vulnerability_message);
